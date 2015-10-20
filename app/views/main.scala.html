@@ -1,0 +1,50 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A website to find Music Jammers">
+        <meta name="author" content="Pedro Alcântara">
+
+        <title>@title</title>
+        <!-- Bootstrap Core CSS -->
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.css")">
+
+        <!-- Custom Styles -->
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/font-awesome.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/magnific-popup.css")">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+
+        <!-- Basic Tag -->
+        <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/tag-basic-style.css")">
+
+
+
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    </head>
+    <body>
+        @content
+
+        <!-- Crafted Scripts Loading Last -->
+        <script src="@routes.Assets.versioned("javascripts/hello.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/chart.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/bootstrap.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/tagging.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/tagging.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/jquery.magnific-popup.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/jquery.magnific-popup.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/choice-script.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/popupscript.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/tag-controll.js")" type="text/javascript"></script>
+    </body>
+
+
+</html>

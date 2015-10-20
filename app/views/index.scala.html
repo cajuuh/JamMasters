@@ -1,0 +1,262 @@
+@(message: String)
+
+@usuarioForm = {
+    <form action="@routes.Application.newUsuario()" method="post" id="test-form" class="white-popup-block mfp-hide">
+        <h1>Form</h1>
+        <fieldset style="border:0;">
+            <p>Forneça suas informações:</p>
+            <ol>
+                <li>
+                    <label for="nome">Nome: </label>
+                    <input id="inputNome" name="nome" placeholder="Seu Nome" class="form-control" required="required" type="text">
+                </li>
+                <li>
+                    <label for="email">Email: </label>
+                    <input id="email" name="email" placeholder="Seu e-mail" class="form-control" required="required" type="email">
+                </li>
+                <li>
+                    <label for="phone">Telefone: </label>
+                    <input id="phone" name="phone" placeholder="Eg. +447500000000" class="form-control" required="" type="tel">
+                </li>
+                <li>
+                    <label for="instrumentos">Instrumentos: </label>
+                    <div data-tags-input-name="tag" id="tagBox" class="form-control">preexisting-tag</div>
+                </li>
+                <li>
+                    <label for="textarea">Textarea</label><br>
+                    <textarea id="textarea">Try to resize me to see how popup CSS-based resizing works.</textarea>
+                </li>
+            </ol>
+        </fieldset>
+    </form>
+}
+
+
+@main("JamMasters") {
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img class="hvr-buzz" src="@routes.Assets.versioned("images/logoGarageJam.png")" width="120px"/></a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active">
+                    <a class="popup-with-form" href="#test-form">Open form</a>
+                </li>
+            </ul>
+            <div id="navbar-meio" class="container centered">
+                <h1>Encontre alguém pra fazer um som!</h1>
+            </div>
+        </div><!--/.nav-collapse -->
+    </div>
+</div>
+
+
+<div id="hello">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 centered">
+                <img class="hvr-buzz-out" src="@routes.Assets.versioned("images/logoGarageJam.png")"/>
+                <h2>We Are The Music!</h2>
+            </div><!-- /col-lg-8 -->
+        </div><!-- /row -->
+    </div> <!-- /container -->
+</div><!-- /hello -->
+
+<div id="opcoes-anuncios">
+    <div class="col-md-4">
+            <!--Mais recentes-->
+        <a id="clica-mais" href="javascript:">
+            <div class="botao-selecao">
+                <div class="img-selecao">
+                    <img src="@routes.Assets.versioned("images/Mostrecent-icon.png")"/>
+                </div>
+                <div class="text-selecao">
+                    Mais Recentes
+                </div>
+            </div>
+        </a>
+            <!--Vocais-->
+        <a id="clica-voz" href="javascript:">
+            <div class="botao-selecao">
+                <div class="img-selecao">
+                    <img src="@routes.Assets.versioned("images/Simple-Mic-icon.png")"/>
+                </div>
+                <div class="text-selecao">
+                    Vocais
+                </div>
+            </div>
+        </a>
+            <!--Cordas-->
+        <a id="clica-cordas" href="javascript:">
+            <div class="botao-selecao">
+                <div class="img-selecao">
+                    <img src="@routes.Assets.versioned("images/Guitar-icon.png")"/>
+                </div>
+                <div class="text-selecao">
+                    Cordas
+                </div>
+            </div>
+        </a>
+            <!--Percussão-->
+        <a id="clica-percussao" href="javascript:">
+            <div class="botao-selecao">
+                <div class="img-selecao">
+                    <img src="@routes.Assets.versioned("images/Drum-icon.png")"/>
+                </div>
+                <div class="text-selecao">
+                    Percussão
+                </div>
+            </div>
+        </a>
+            <!--Eletrônico-->
+        <a id="clica-eletronico" href="javascript:">
+            <div class="botao-selecao">
+                <div class="img-selecao">
+                    <img src="@routes.Assets.versioned("images/Pickup-icon.png")"/>
+                </div>
+                <div class="text-selecao">
+                    Eletrônico
+                </div>
+            </div>
+        </a>
+    </div>
+
+
+    <!-- Anuncios -->
+    <div class="col-md-8" id="mostra-anuncio">
+            <!-- Anuncios Mais Recentes -->
+        <div class="wrath-content-box" id="anuncio-mais-recentes">
+            <div class="img-anunciante">
+                <img src="@routes.Assets.versioned("images/user.png")"/>
+            </div>
+            <div class="nome-anunciante">
+                Joao
+            </div>
+            <div class="instrumento-anunciante">
+                guitarra
+            </div>
+        </div>
+        <div class="wrath-content-box" id="anuncio-mais-recentes">
+            <div class="img-anunciante">
+                <img src="@routes.Assets.versioned("images/user.png")"/>
+            </div>
+            <div class="nome-anunciante">
+                Joao
+            </div>
+            <div class="instrumento-anunciante">
+                guitarra
+            </div>
+        </div>
+        <div class="wrath-content-box" id="anuncio-mais-recentes">
+            <div class="img-anunciante">
+                <img src="@routes.Assets.versioned("images/user.png")"/>
+            </div>
+            <div class="nome-anunciante">
+                Joao
+            </div>
+            <div class="instrumento-anunciante">
+                guitarra
+            </div>
+        </div>
+    </div>
+
+    <!-- Div com anuncios da classe vocais -->
+    <div class="col-md-8" id="mostra-anuncio-vocais">
+        <!-- Anuncios Vocais -->
+        <div class="wrath-content-box" id="anuncio-vocais">
+            <div class="wrath-content-box" id="anuncio-mais-recentes">
+                <div class="img-anunciante">
+                    <img src="@routes.Assets.versioned("images/user.png")"/>
+                </div>
+                <div class="nome-anunciante">
+                    Antonio
+                </div>
+                <div class="instrumento-anunciante">
+                    Cantô
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Div com anuncios da classe cordas -->
+    <div class="col-md-8" id="mostra-anuncio-cordas">
+        <!-- Anuncios Cordas -->
+        <div class="wrath-content-box" id="anuncio-cordas">
+            <div class="wrath-content-box" id="anuncio-mais-recentes">
+                <div class="img-anunciante">
+                    <img src="@routes.Assets.versioned("images/user.png")"/>
+                </div>
+                <div class="nome-anunciante">
+                    Joao
+                </div>
+                <div class="instrumento-anunciante">
+                    Cavaco
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Div com anuncios da classe percussão -->
+    <div class="col-md-8" id="mostra-anuncio-percussao">
+        <!-- Anuncios Percussão -->
+        <div class="wrath-content-box" id="anuncio-percussao">
+            <div class="wrath-content-box" id="anuncio-mais-recentes">
+                <div class="img-anunciante">
+                    <img src="@routes.Assets.versioned("images/user.png")"/>
+                </div>
+                <div class="nome-anunciante">
+                    Joao
+                </div>
+                <div class="instrumento-anunciante">
+                    lata
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Div com anuncios da classe elertrônico -->
+    <div class="col-md-8" id="mostra-anuncio-eletronico">
+        <!-- Anuncios Eletrônicos -->
+        <div class="wrath-content-box" id="anuncio-eletronico">
+            <div class="wrath-content-box" id="anuncio-mais-recentes">
+                <div class="img-anunciante">
+                    <img src="@routes.Assets.versioned("images/user.png")"/>
+                </div>
+                <div class="nome-anunciante">
+                    Joao
+                </div>
+                <div class="instrumento-anunciante">
+                    pickups
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- opcoes-anuncios -->
+
+<div id="green">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 centered">
+                <img src="@routes.Assets.versioned("images/iphone.png")" alt="">
+            </div>
+
+            <div class="col-lg-7 centered">
+                <h3>WE'RE GOING MOBILE!</h3>
+                <p>Logo você também vai poder se juntar pra fazer música direto do seu celular.</p>
+            </div>
+        </div>
+    </div>
+</div>
+@usuarioForm
+
+<div id="f">
+    <div class="container">
+        <div class="row">
+            <p>Crafted by Pedro Alcântara.</p>
+        </div>
+    </div>
+</div>
+}
