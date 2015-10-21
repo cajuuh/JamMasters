@@ -43,6 +43,7 @@ public class Usuario
         this.email = email;
     }
 
+
     public String getInstrumentos(String nomeDoInstrumento)
     {
         for (String instrumento : instrumentos)
