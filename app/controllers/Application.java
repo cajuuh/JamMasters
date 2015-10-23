@@ -6,7 +6,6 @@ import play.data.Form;
 import play.db.jpa.Transactional;
 import play.mvc.Controller;
 import play.mvc.Result;
-import play.twirl.api.Content;
 import views.html.index;
 
 import java.util.List;
@@ -15,8 +14,8 @@ import static play.libs.Json.toJson;
 
 public class Application extends Controller
 {
+    private static Form<Usuario> usuarioForm = Form.form(Usuario.class);
 
-    static Form<Usuario> usuarioForm = Form.form(Usuario.class);
     private static UsuarioRepository usuarioRepository = UsuarioRepository.getInstance();
 
     public Result index()
@@ -34,8 +33,8 @@ public class Application extends Controller
         }
         else
         {
-            Usuario usuario = filledForm.get();
-            usuarioRepository.persist(usuario);
+            Usuario novoUsuario = filledForm.get();
+            usuarioRepository.persist(novoUsuario);
             usuarioRepository.flush();
             return ok(index.render());
         }
@@ -43,8 +42,8 @@ public class Application extends Controller
 
     public Result getUsuarios()
     {
-        List<Usuario> users =  usuarioRepository.findAll();
-        return ok((Content) users);
+        List<Usuario> users = usuarioRepository.findAll();
+        return ok((toJson(users)));
     }
 }
 
