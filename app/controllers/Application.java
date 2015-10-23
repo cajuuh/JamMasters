@@ -1,13 +1,17 @@
 package controllers;
 
-import java.util.List;
-
 import models.Usuario;
 import models.repository.UsuarioRepository;
-import play.*;
 import play.data.Form;
-import play.mvc.*;
-import views.html.*;
+import play.db.jpa.Transactional;
+import play.mvc.Controller;
+import play.mvc.Result;
+import play.twirl.api.Content;
+import views.html.index;
+
+import java.util.List;
+
+import static play.libs.Json.toJson;
 
 public class Application extends Controller
 {
@@ -17,22 +21,31 @@ public class Application extends Controller
 
     public Result index()
     {
-        return ok(index.render("Your new application is ready."));
+        return ok(index.render());
     }
 
+    @Transactional
     public Result newUsuario()
     {
         Form<Usuario> filledForm = usuarioForm.bindFromRequest();
         if(filledForm.hasErrors())
         {
-            return badRequest();
+            return badRequest(views.html.index.render());
         }
         else
         {
             Usuario usuario = filledForm.get();
             usuarioRepository.persist(usuario);
             usuarioRepository.flush();
-            return redirect("http://www.google.com");
+            return ok(index.render());
         }
     }
+
+    public Result getUsuarios()
+    {
+        List<Usuario> users =  usuarioRepository.findAll();
+        return ok((Content) users);
+    }
 }
+
+

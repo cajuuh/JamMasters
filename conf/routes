@@ -4,7 +4,8 @@
 
 # Home page
 GET     /                           controllers.Application.index()
-POST       /usuarios            controllers.Application.newUsuario()
+POST    /usuario                    controllers.Application.newUsuario()
+GET     /usuarios                   controllers.Application.getUsuarios()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

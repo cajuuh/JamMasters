@@ -1,4 +1,4 @@
-@(message: String)
+@()
 
 @usuarioForm = {
     <form action="@routes.Application.newUsuario()" method="post" id="test-form" class="white-popup-block mfp-hide">
@@ -20,7 +20,7 @@
                 </li>
                 <li>
                     <label for="instrumentos">Instrumentos: </label>
-                    <div data-tags-input-name="tag" id="tagBox" class="form-control"></div>
+                    <div data-tags-input-name="tag" id="tagBox" class="form-control" name="instrumentos"></div>
                     <p>insira aqui os instrumentos que você toca como tags.</p>
                 </li>
                 <li>
@@ -28,6 +28,7 @@
                     <textarea id="textarea">Try to resize me to see how popup CSS-based resizing works.</textarea>
                 </li>
             </ol>
+            <input type="submit" class="btn btn-primary" value="Create">
         </fieldset>
     </form>
 }
@@ -252,6 +253,10 @@
     </div>
 </div>
 @usuarioForm
+
+    <div>
+        @routes.Application.getUsuarios()
+    </div>
 
 <div id="f">
     <div class="container">
