@@ -10,6 +10,7 @@ import java.util.List;
  * Created by Pedro on 25/08/2015.
  */
 @Entity
+@Table(name = "TB_USUARIO")
 public class Usuario
 {
     @Id
@@ -17,14 +18,11 @@ public class Usuario
     private Long id;
 
     //nome do usuario
-    @Column(unique = true)
     private String nome;
 
     //telefone do usuario
-    @Column (unique = true)
     private String phone;
 
-    @Column (unique = true)
     private String email;
 
     @ElementCollection

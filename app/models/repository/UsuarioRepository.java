@@ -12,7 +12,6 @@ import javax.persistence.PersistenceContext;
 @Repository
 public class UsuarioRepository extends GenericRepositoryImpl<Usuario>
 {
-
     @PersistenceContext
     private EntityManager manager;
 

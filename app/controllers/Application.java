@@ -20,7 +20,7 @@ public class Application extends Controller
 
     public Result index()
     {
-        return ok(index.render());
+        return ok(index.render("blabla"));
     }
 
     @Transactional
@@ -29,17 +29,18 @@ public class Application extends Controller
         Form<Usuario> filledForm = usuarioForm.bindFromRequest();
         if(filledForm.hasErrors())
         {
-            return badRequest(views.html.index.render());
+            return badRequest(views.html.index.render("application"));
         }
         else
         {
             Usuario novoUsuario = filledForm.get();
             usuarioRepository.persist(novoUsuario);
             usuarioRepository.flush();
-            return ok(index.render());
+            return ok(index.render("http://www.google.com"));
         }
     }
 
+    @Transactional
     public Result getUsuarios()
     {
         List<Usuario> users = usuarioRepository.findAll();
