@@ -1,6 +1,6 @@
 package models.repository;
 
-import models.Usuario;
+import models.User;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -10,23 +10,23 @@ import javax.persistence.PersistenceContext;
  * Created by Pedro on 25/08/2015.
  */
 @Repository
-public class UsuarioRepository extends GenericRepositoryImpl<Usuario>
+public class UserRepository extends GenericRepositoryImpl<User>
 {
     @PersistenceContext
     private EntityManager manager;
 
-    private static UsuarioRepository instance;
+    private static UserRepository instance;
 
-    private UsuarioRepository()
+    private UserRepository()
     {
-        super(Usuario.class);
+        super(User.class);
     }
 
-    public static UsuarioRepository getInstance()
+    public static UserRepository getInstance()
     {
         if (instance == null)
         {
-            instance = new UsuarioRepository();
+            instance = new UserRepository();
         }
         return instance;
     }

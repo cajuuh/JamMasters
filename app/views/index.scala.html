@@ -1,12 +1,12 @@
 @(message: String)
 
 @usuarioForm = {
-    <form action = @routes.Application.newUsuario(),'enctype -> "multipart/form-data" method="post" id="test-form" class="white-popup-block mfp-hide">
+    <form method="post" id="test-form" class="white-popup-block mfp-hide" action="@routes.Application.newUser()">
         <h1>Form</h1>
         <fieldset style="border:0;">
             <p>Forneça suas informações:</p>
             <ol>
-                <li>
+                <li action = @routes.Application.upload(),'enctype -> "multipart/form-data">
                     <input type="file" name="picture">
                     <p>
                         <input type="submit">
@@ -14,7 +14,7 @@
                 </li>
                 <li>
                     <label for="nome">Nome: </label>
-                    <input id="inputNome" name="nome" placeholder="Seu Nome" class="form-control" required="required" type="text">
+                    <input id="inputNome" name="name" placeholder="Seu Nome" class="form-control" required="required" type="text">
                 </li>
                 <li>
                     <label for="email">Email: </label>
@@ -26,7 +26,7 @@
                 </li>
                 <li>
                     <label for="instrumentos">Instrumentos: </label>
-                    <div data-tags-input-name="tag" id="tagBox" class="form-control" name="instrumentos"></div>
+                    <div data-tags-input-name="instruments" id="tagBox" class="form-control" name="instrumentos"></div>
                     <p>insira aqui os instrumentos que você toca como tags.</p>
                 </li>
                 <li>
@@ -259,10 +259,6 @@
     </div>
 </div>
 @usuarioForm
-
-    <div>
-        @routes.Application.getUsuarios()
-    </div>
 
 <div id="f">
     <div class="container">
