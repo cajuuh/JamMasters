@@ -11,13 +11,11 @@ import javax.persistence.criteria.Root;
 
 import play.db.jpa.JPA;
 
-
-
 /**
  * Camada genérica para acesso ao Banco de Dados
  */
 public abstract class GenericRepositoryImpl<Entidade> {
-    // Resultados por p?gina
+    // Resultados por página
     public static final int DEFAULT_RESULTS = 50;
 
     private Class<Entidade> clazz;
@@ -34,10 +32,11 @@ public abstract class GenericRepositoryImpl<Entidade> {
     }
 
     /**
-     * Espelha o estado do DAO com o banco de Dados, deve ser feito ap?s um
+     * Espelha o estado do DAO com o banco de Dados, deve ser feito após um
      * persist, ou merge.
      */
-    public void flush() {
+    public void flush()
+    {
         getEm().flush();
     }
 
@@ -99,7 +98,7 @@ public abstract class GenericRepositoryImpl<Entidade> {
     }
 
     /**
-     * Retorna quantas entidades da {@code clazz} est?o no banco de dados
+     * Retorna quantas entidades da {@code clazz} estão no banco de dados
      */
     public Long countAll() {
         // Total de entidades

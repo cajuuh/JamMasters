@@ -1,14 +1,20 @@
 @(message: String)
 
 @usuarioForm = {
-    <form action="@routes.Application.newUsuario()" method="post" id="test-form" class="white-popup-block mfp-hide">
+    <form method="post" id="test-form" class="white-popup-block mfp-hide" action="@routes.Application.newUser()">
         <h1>Form</h1>
         <fieldset style="border:0;">
             <p>Forneça suas informações:</p>
             <ol>
+                <li action = @routes.Application.upload,'enctype -> "multipart/form-data">
+                    <input type="file" name="picture">
+                    <p>
+                        <input type="submit">
+                    </p>
+                </li>
                 <li>
                     <label for="nome">Nome: </label>
-                    <input id="inputNome" name="nome" placeholder="Seu Nome" class="form-control" required="required" type="text">
+                    <input id="inputNome" name="name" placeholder="Seu Nome" class="form-control" required="required" type="text">
                 </li>
                 <li>
                     <label for="email">Email: </label>
@@ -19,8 +25,8 @@
                     <input id="phone" name="phone" placeholder="Eg. +447500000000" class="form-control" required="" type="tel">
                 </li>
                 <li>
-                    <label for="instrumentos">Instrumentos: </label>
-                    <div data-tags-input-name="tag" id="tagBox" class="form-control"></div>
+                    <label for="instruments">Instrumentos: </label>
+                    <div data-tags-input-name="instruments" id="tagBox" class="form-control" name="instruments"></div>
                     <p>insira aqui os instrumentos que você toca como tags.</p>
                 </li>
                 <li>
@@ -28,6 +34,7 @@
                     <textarea id="textarea">Try to resize me to see how popup CSS-based resizing works.</textarea>
                 </li>
             </ol>
+            <input type="submit" class="btn btn-primary" value="Create">
         </fieldset>
     </form>
 }

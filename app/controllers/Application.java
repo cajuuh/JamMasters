@@ -1,38 +1,68 @@
 package controllers;
 
+import models.User;
+import models.repository.UserRepository;
+import play.data.Form;
+import play.db.jpa.Transactional;
+import play.mvc.Controller;
+import play.mvc.Http;
+import play.mvc.Result;
+import views.html.index;
+
+import java.io.File;
 import java.util.List;
 
-import models.Usuario;
-import models.repository.UsuarioRepository;
-import play.*;
-import play.data.Form;
-import play.mvc.*;
-import views.html.*;
+import static play.libs.Json.toJson;
 
 public class Application extends Controller
 {
+    private static Form<User> userForm = Form.form(User.class);
 
-    static Form<Usuario> usuarioForm = Form.form(Usuario.class);
-    private static UsuarioRepository usuarioRepository = UsuarioRepository.getInstance();
+    private static UserRepository userRepository = UserRepository.getInstance();
 
     public Result index()
     {
-        return ok(index.render("Your new application is ready."));
+        return ok(index.render("blabla"));
     }
 
-    public Result newUsuario()
+    @Transactional
+    public Result newUser()
     {
-        Form<Usuario> filledForm = usuarioForm.bindFromRequest();
-        if(filledForm.hasErrors())
-        {
-            return badRequest();
+        Form<User> filledForm = userForm.bindFromRequest();
+
+        if (filledForm.hasErrors()) {
+            return badRequest(views.html.index.render("application"));
         }
         else
         {
-            Usuario usuario = filledForm.get();
-            usuarioRepository.persist(usuario);
-            usuarioRepository.flush();
-            return redirect("http://www.google.com");
+            User newUser = filledForm.get();
+            userRepository.persist(newUser);
+            userRepository.flush();
+            return ok(index.render("http://www.google.com"));
         }
     }
+
+    @Transactional
+    public Result upload(){
+        Http.MultipartFormData body = request().body().asMultipartFormData();
+        Http.MultipartFormData.FilePart picture = body.getFile("picture");
+        if (picture != null) {
+            String fileName = picture.getFilename();
+            String contentType = picture.getContentType();
+            File file = picture.getFile();
+            return ok("File uploaded");
+        } else {
+            flash("error", "Missing file");
+            return badRequest(views.html.index.render("application"));
+        }
+    }
+
+    @Transactional
+    public Result getUsuarios()
+    {
+        List<User> users = userRepository.findAll();
+        return ok((toJson(users)));
+    }
 }
+
+
