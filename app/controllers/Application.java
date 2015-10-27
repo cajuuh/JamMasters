@@ -30,8 +30,7 @@ public class Application extends Controller
     {
         Form<User> filledForm = userForm.bindFromRequest();
 
-        if (filledForm.hasErrors())
-        {
+        if (filledForm.hasErrors()) {
             return badRequest(views.html.index.render("application"));
         }
         else

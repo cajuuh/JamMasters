@@ -1,8 +1,10 @@
 package models;
 
 import com.google.common.base.Objects;
+import org.hibernate.annotations.ManyToAny;
 
 import javax.persistence.*;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +28,10 @@ public class User
     //user email
     private String email;
 
-    @OneToMany(targetEntity=User.class, mappedBy="id", fetch=FetchType.EAGER)
+    //user picture
+    private File picture;
+
+    @ElementCollection
     private List<String> instruments;
 
     public User()
@@ -42,42 +47,30 @@ public class User
         this.email = email;
     }
 
-
-    public String getinstruments(String nameDoInstrumento)
-    {
-        for (String instrumento : instruments)
-        {
-            if(instrumento.equals(nameDoInstrumento))
-            {
-                return instrumento;
-            }
-        }
-        return "insturmento nao encontrado";
-    }
-
     public void setId(Long id)
     {
         this.id = id;
     }
 
-    public void setname(String name)
-    {
+
+    public void setName(String name) {
         this.name = name;
     }
 
-    public void setPhone(String phone)
-    {
+    public void setPhone(String phone){
         this.phone = phone;
     }
 
-    public void setEmail(String email)
-    {
+    public void setEmail(String email){
         this.email = email;
     }
 
-    public void setInstruments(List<String> instruments)
-    {
+    public void setInstruments(List<String> instruments){
         this.instruments = instruments;
+    }
+
+    public void setPicture(File picture){
+        this.picture = picture;
     }
 
     public Long getId()
@@ -85,24 +78,24 @@ public class User
         return id;
     }
 
-    public String getname()
-    {
+    public String getName(){
         return name;
     }
 
-    public String getPhone()
-    {
+    public String getPhone(){
         return phone;
     }
 
-    public String getEmail()
-    {
+    public String getEmail(){
         return email;
     }
 
-    public List<String> getInstruments()
-    {
+    public List<String> getInstruments(){
         return instruments;
+    }
+
+    public File getPicture() {
+        return picture;
     }
 
     @Override
@@ -117,7 +110,7 @@ public class User
             return false;
         }
         User otherUser = (User) obj;
-        return Objects.equal(otherUser.getname(), this.getname());
+        return Objects.equal(otherUser.getName(), this.getName());
     }
 
     @Override
