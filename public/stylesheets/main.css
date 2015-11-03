@@ -175,6 +175,26 @@ hr {
     font-size: 20px;
 }
 
+/* Yellow */
+
+#yellow {
+    background-color: #ffd700;
+    padding-top: 50px;
+    margin-bottom: 0px;
+}
+
+#yellow h3 {
+    color: white;
+    font-weight: 400;
+    margin-bottom: 35px;
+}
+
+#yellow p {
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+}
+
 /* Opcoes */
 
 #opcoes-anuncios
@@ -182,6 +202,7 @@ hr {
     padding-top: 20px;
     padding-bottom: 390px;
     background-color: #7b7b7b;
+    height: 300px;
 }
 
 .botao-selecao
@@ -207,6 +228,14 @@ hr {
 
 /* Anuncio */
 
+#tag-tipo
+{
+    width: auto;
+    height: auto;
+    position: absolute;
+    margin-top: -15px;
+}
+
 #mostra-anuncio
 {
     background-color: #7b7b7b;
@@ -215,10 +244,17 @@ hr {
 #anuncio-mais-recentes
 {
     display: inline-block;
+    overflow:hidden;
     padding: 10px;
     margin-top: 10px;
     border-radius: 5px;
     background-color: #b8b8b8;
+    z-index: 999999;
+    right: 0;
+    height: 60%;
+    text-align: center;
+    width: 200px;
+    height: 300px;
 }
 
 #anuncio-vocais
@@ -259,6 +295,12 @@ hr {
 .instrumento-anunciante
 {
     text-align: center;
+}
+
+.texto-anunciante{
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
 }
 /* Skills */
 #skills {

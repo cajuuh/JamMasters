@@ -30,8 +30,8 @@
                     <p>insira aqui os instrumentos que você toca como tags.</p>
                 </li>
                 <li>
-                    <label for="textarea">Textarea</label><br>
-                    <textarea id="textarea">Try to resize me to see how popup CSS-based resizing works.</textarea>
+                    <label for="textarea">Conta a história!</label><br>
+                    <textarea id="textarea"></textarea>
                 </li>
             </ol>
             <input type="submit" class="btn btn-primary" value="Create">
@@ -39,6 +39,40 @@
     </form>
 }
 
+@userAnnouncimentMostRecent = {
+    <div class="anuncio" id="anuncio-mais-recentes">
+        <img id="tag-tipo" src="@routes.Assets.versioned("images/Banda.png")"/>
+        <div class="img-anunciante">
+            <img src="@routes.Assets.versioned("images/user.png")"/>
+        </div>
+        <div class="nome-anunciante">
+            Joao
+        </div>
+        <div class="instrumento-anunciante">
+            guitarra
+        </div>
+        <div class="texto-anunciante">
+            <h3 class="titulo-anuncio">Toco guitarra</h3>
+            <p>toco guitarra legal quero entrar pra um grupinho bacana. vamos lá minha galera toquem em uma bandinha comigo é super bacana e divertido quando a gente tem coleguinhas pra tocar.se eu continuar escrevendo aqui o que será que acontece nessa merda</p>
+        </div>
+    </div>
+}
+
+@userAnnouncimentVoice = {
+    <!-- TODO user-voice divs -->
+}
+
+@userAnnouncimentChords = {
+    <!-- TODO user-chords divs -->
+}
+
+@userAnnouncimentDrums = {
+    <!-- TODO user-drums divs -->
+}
+
+@userAnnouncimentEletronic = {
+    <!-- TODO user-eletronic divs -->
+}
 
 @main("JamMasters") {
 <div class="navbar navbar-default navbar-fixed-top">
@@ -75,6 +109,12 @@
         </div><!-- /row -->
     </div> <!-- /container -->
 </div><!-- /hello -->
+
+<div id="yellow">
+    <div id="container">
+        meu maracatu pesa uma tonelada.
+    </div>
+</div>
 
 <div id="opcoes-anuncios">
     <div class="col-md-4">
@@ -138,40 +178,11 @@
 
     <!-- Anuncios -->
     <div class="col-md-8" id="mostra-anuncio">
-            <!-- Anuncios Mais Recentes -->
-        <div class="wrath-content-box" id="anuncio-mais-recentes">
-            <div class="img-anunciante">
-                <img src="@routes.Assets.versioned("images/user.png")"/>
-            </div>
-            <div class="nome-anunciante">
-                Joao
-            </div>
-            <div class="instrumento-anunciante">
-                guitarra
-            </div>
-        </div>
-        <div class="wrath-content-box" id="anuncio-mais-recentes">
-            <div class="img-anunciante">
-                <img src="@routes.Assets.versioned("images/user.png")"/>
-            </div>
-            <div class="nome-anunciante">
-                Joao
-            </div>
-            <div class="instrumento-anunciante">
-                guitarra
-            </div>
-        </div>
-        <div class="wrath-content-box" id="anuncio-mais-recentes">
-            <div class="img-anunciante">
-                <img src="@routes.Assets.versioned("images/user.png")"/>
-            </div>
-            <div class="nome-anunciante">
-                Joao
-            </div>
-            <div class="instrumento-anunciante">
-                guitarra
-            </div>
-        </div>
+        <!-- Anuncios Mais Recentes -->
+        @userAnnouncimentMostRecent
+        @userAnnouncimentMostRecent
+        @userAnnouncimentMostRecent
+        @userAnnouncimentMostRecent
     </div>
 
     <!-- Div com anuncios da classe vocais -->
