@@ -31,24 +31,35 @@ public class User
     //user picture
     private File picture;
 
+    //user playInBand
+    private boolean playInBand;
+
+    //user playOcasionally
+    private boolean playOcasionally;
+
     @ElementCollection
     private List<String> instruments;
 
-    public User()
-    {
+    @ElementCollection
+    private List<String> stylesLike;
+
+    @ElementCollection
+    private List<String> stylesDislike;
+
+    public User() {
         this.instruments = new ArrayList<String>();
+        this.stylesLike = new ArrayList<String>();
+        this.stylesDislike = new ArrayList<String>();
     }
 
-    public User(String name, String phone, String email)
-    {
+    public User(String name, String phone, String email) {
         this();
         this.name = name;
         this.phone = phone;
         this.email = email;
     }
 
-    public void setId(Long id)
-    {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -67,6 +78,22 @@ public class User
 
     public void setInstruments(List<String> instruments){
         this.instruments = instruments;
+    }
+
+    public void setPlayInBand(boolean playInBand) {
+        this.playInBand = playInBand;
+    }
+
+    public void setPlayOcasionally(boolean playOcasionally) {
+        this.playOcasionally = playOcasionally;
+    }
+
+    public void setStylesLike(List<String> stylesLike) {
+        this.stylesLike = stylesLike;
+    }
+
+    public void setStylesDislike(List<String> stylesDislike) {
+        this.stylesDislike = stylesDislike;
     }
 
     public void setPicture(File picture){
@@ -96,6 +123,22 @@ public class User
 
     public File getPicture() {
         return picture;
+    }
+
+    public boolean isPlayInBand() {
+        return playInBand;
+    }
+
+    public boolean isPlayOcasionally() {
+        return playOcasionally;
+    }
+
+    public List<String> getStylesLike() {
+        return stylesLike;
+    }
+
+    public List<String> getStylesDislike() {
+        return stylesDislike;
     }
 
     @Override
