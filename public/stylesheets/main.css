@@ -228,6 +228,14 @@ hr {
 
 /* Anuncio */
 
+#tag-tipo
+{
+    width: auto;
+    height: auto;
+    position: absolute;
+    margin-top: -15px;
+}
+
 #mostra-anuncio
 {
     background-color: #7b7b7b;
